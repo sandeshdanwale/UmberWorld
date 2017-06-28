@@ -1,22 +1,26 @@
 import { Component, ViewChild } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
 import { Platform, MenuController, Nav } from 'ionic-angular';
-
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
+import '../rxjs-operators';
+import { HomePage } from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AggregationService } from '../services/aggregation.service';
+import { UiService } from '../services/ui.service';
+import { UserService } from '../services/user.service';
+import { User } from '../models/aggregate/user.model';
+import { Panel } from '../models/aggregate/ui.model';
 
 
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class UmberWorldApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
+  rootPage = HomePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -29,8 +33,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Home', component: HomePage }
     ];
   }
 
