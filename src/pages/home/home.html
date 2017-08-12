@@ -1,12 +1,5 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>
-      UmberWorld
-    </ion-title>
-  </ion-navbar>
+  <navbar [cities]="cities | async" [user]="user | async"></navbar>
 </ion-header>
 
 
@@ -31,11 +24,11 @@
       </ion-segment>
 
   
-      <ion-searchbar></ion-searchbar>
-      <ion-list>
-        <ion-item>
-        </ion-item>
-      </ion-list>
+      <!-- <property-autocomplete [user]="user | async"></property-autocomplete>
+      <property-list [properties]="defaultProperty | async" [user]=""></property-list> -->
+
+       <umber-autocomplete [user]="user | async"></umber-autocomplete>
+
     <!-- </ion-card-content>
 
   </ion-card> -->

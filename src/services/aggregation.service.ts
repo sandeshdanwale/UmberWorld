@@ -61,44 +61,18 @@ export class AggregationService {
           this.store.dispatch(new user.LoadSuccessAction(serverUser));
           this.store.dispatch(new city.LoadSuccessAction(data[1]));
           Observable.forkJoin(
-            this.developerService.getFeaturedDevelopers(cityId),
-            this.propertyService.getFeaturedProperties(cityId),
-            this.propertyService.getGlobalFeaturedProperties(),
-            this.developerService.getGlobalFeaturedDevelopers(),
-            this.landmarkService.getFeaturedLandmarks(cityId)
-          ).subscribe(/*data => {
-            this.store.dispatch(new developer.LoadSuccessAction(data[0].slice(0, 13)));
-            this.store.dispatch(new property.LoadSuccessAction(data[1].slice(0, 13)));
-            this.store.dispatch(new defaultProperty.LoadSuccessAction(data[1].slice(0, 4)));
-            this.store.dispatch(new landmark.LoadSuccessAction(data[2].slice(0, 13)));
-            this.store.dispatch(new ui.LoadSuccessAction(activePanels));
-          }*/
-          ([developers, properties, globalProperties, globalDevelopers, landmarks]) => {
-            let _developers = _.slice(
-                                  _.map(developers, (d) => d && new Developer(d)),
-                                  0, 13);
-            let _properties = _.slice(
-                                  _.map(properties, (d) => d && new Property(d)),
-                                  0, 13);
+            this.propertyService.getPropertiesWithDetails(cityId, 'XXXXX'),
+            this.propertyService.getGlobalFeaturedProperties()
+          ).subscribe(
+          ([properties, globalProperties]) => {
             let _defaultProperties = _.slice(
                                   _.map(properties, (d) => d && new Property(d)),
                                   0, 4);
             let _globalProperties = _.slice(
                                   _.map(globalProperties, (d) => d && new Property(d)),
                                   0, 8);
-            let _globalDevelopers = _.slice(
-                                  _.map(globalDevelopers, (d) => d && new Developer(d)),
-                                  0, 8);
-            let _landmarks = _.slice(
-                                  _.map(landmarks, (d) => d && new Landmark(d)),
-                                  0, 13);
-            this.store.dispatch(new developer.LoadSuccessAction(_developers));
-            this.store.dispatch(new property.LoadSuccessAction(_properties));
             this.store.dispatch(new defaultProperty.LoadSuccessAction(_defaultProperties));
             this.store.dispatch(new globalProperty.LoadSuccessAction(_globalProperties));
-            this.store.dispatch(new globalDeveloper.LoadSuccessAction(_globalDevelopers));
-            this.store.dispatch(new landmark.LoadSuccessAction(_landmarks));
-            this.store.dispatch(new ui.LoadSuccessAction(activePanels));
           });
         })
       

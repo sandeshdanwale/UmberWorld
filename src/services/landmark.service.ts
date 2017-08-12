@@ -11,7 +11,7 @@ import { Response } from '@angular/http';
 @Injectable()
 export class LandmarkService {
 
-	BASE_URL: string = location.hostname === 'localhost' ? '' : '';
+	BASE_URL: string = location.hostname === 'localhost' ? 'api' : 'api';
     landmark: Observable<Landmark[]>;
     constructor(
         private http: HttpService,

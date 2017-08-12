@@ -10,7 +10,7 @@ import { Response } from '@angular/http';
 @Injectable()
 export class DeveloperService {
 
-	BASE_URL: string = location.hostname === 'localhost' ? '' : '';
+	BASE_URL: string = location.hostname === 'localhost' ? 'api' : 'api';
     developer: Observable<Developer[]>;
     globalDeveloper: Observable<Developer[]>;
     constructor(

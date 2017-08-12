@@ -26,7 +26,7 @@ import * as _ from 'lodash';
 @Injectable()
 export class UiService {
 
-	BASE_URL: string = location.hostname === 'localhost' ? '' : '';
+	BASE_URL: string = location.hostname === 'localhost' ? 'api' : 'api';
     activePanels: Observable<Panel[]>;
     activeSearchDetailPanel: Observable<SearchDetailPanel>;
     searchDetailListLoader: Observable<boolean>;

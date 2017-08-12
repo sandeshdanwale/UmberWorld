@@ -1,17 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import '../rxjs-operators';
 import { HomePage } from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AggregationService } from '../services/aggregation.service';
-import { UiService } from '../services/ui.service';
-import { UserService } from '../services/user.service';
-import { User } from '../models/aggregate/user.model';
-import { Panel } from '../models/aggregate/ui.model';
-
+import { CityAutocompletePage } from '../pages/city-autocomplete/city-autocomplete';
+import { NavbarPage } from '../pages/navbar/navbar';
+import { PropertyPage } from '../pages/property/property';
+import { PropertyListPage } from '../pages/property-list/property-list';
+import { PropertyAutocompletePage } from '../pages/property-autocomplete/property-autocomplete';
+import { UmberAutocompletePage } from '../pages/umber-autocomplete/umber-autocomplete';
 
 @Component({
   templateUrl: 'app.html'
@@ -33,7 +32,13 @@ export class UmberWorldApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Home', component: HomePage }
+      { title: 'Home', component: HomePage },
+      { title: 'CityAutocompletePage', component: CityAutocompletePage },
+      { title: 'NavbarPage', component: NavbarPage },
+      { title: 'PropertyPage', component: PropertyPage },
+      { title: 'PropertyListPage', component: PropertyListPage },
+      { title: 'PropertyAutocompletePage', component: PropertyAutocompletePage },
+      { title: 'UmberAutocompletePage', component: UmberAutocompletePage }
     ];
   }
 

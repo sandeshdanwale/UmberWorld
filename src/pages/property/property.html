@@ -1,0 +1,45 @@
+<ion-card *ngIf="property" class="property-card">
+
+  <ion-item>
+    <h2 class="property-name">{{displayProperty.name}}</h2>
+    <p class="developer-name">{{"By "}} {{displayProperty.developerName}}</p>
+  </ion-item>
+
+ <!--  <img src="assets/img/advance-card-tmntr.jpg"> -->
+
+  <ion-card-content>
+    <ion-row>
+      <ion-col col-6>
+        <ion-avatar item-start class="property-image">
+          <img class="property-search" src="{{imageUrl}}" />
+        </ion-avatar>
+      </ion-col>
+      <ion-col col-6>
+        <div class="property-configs">
+          <div *ngFor="let config of property.configs?.configs" class="config">
+            <ion-row class="config-row">
+              <ion-col>
+                <div class="type">
+                  <span>{{config.type}}</span>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="price">
+                  <i class="fa fa-inr" aria-hidden="true"></i>
+                  <span>{{mapToCurrencyString(config.basePrice)}}</span>
+                </div>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div> 
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+
+</ion-card>
+
+<style>
+  .social-cards ion-col {
+    padding: 0;
+  }
+</style>

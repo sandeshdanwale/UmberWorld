@@ -10,7 +10,7 @@ import { Response } from '@angular/http';
 @Injectable()
 export class CityService {
 
-	BASE_URL: string = location.hostname === 'localhost' ? '' : '';
+	BASE_URL: string = location.hostname === 'localhost' ? 'api' : 'api';
     city: Observable<City[]>;
     constructor(
         private http: HttpService,

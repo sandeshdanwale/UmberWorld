@@ -1,5 +1,16 @@
 {
   "name": "umber",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api/",
+      "proxyUrl": "http://localhost:8090/"
+    },
+    {
+      "path": "/assets/images/",
+      "proxyUrl": "http://localhost:4200/assets/images/"
+    }
+
+  ]
 }

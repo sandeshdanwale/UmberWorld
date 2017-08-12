@@ -1,0 +1,29 @@
+<ion-navbar>
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>
+    <ion-row>
+      <ion-col text-center>
+       UmberWorld
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 text-center class="title">
+        <ion-row (click)="showAddressModal()">
+          <ion-col col-10>
+            <span>{{selectedCity?.name}}</span>
+          </ion-col>
+          <ion-col col-2 text-left>
+            <ion-icon name="arrow-down"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-title>
+  <ion-buttons end>
+    <button ion-button icon-only>
+      <ion-icon name="contact"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-navbar>

@@ -25,23 +25,40 @@ import { TagService } from '../services/tag.service';
 import { CacheService } from '../services/cache.service';
 import { UtilService } from '../services/util.service';
 import { reducer } from '../reducers';
+import { CityAutocompletePage } from '../pages/city-autocomplete/city-autocomplete';
+import { NavbarPage } from '../pages/navbar/navbar';
+import { PropertyPage } from '../pages/property/property';
+import { PropertyListPage } from '../pages/property-list/property-list';
+import { PropertyAutocompletePage } from '../pages/property-autocomplete/property-autocomplete';
+import { UmberAutocompletePage } from '../pages/umber-autocomplete/umber-autocomplete';
 
 @NgModule({
   declarations: [
     UmberWorldApp,
     HomePage,
+    CityAutocompletePage,
+    NavbarPage,
+    PropertyPage,
+    PropertyListPage,
+    PropertyAutocompletePage,
+    UmberAutocompletePage,
+
     OrderByPipe, ActiveLandmarkPipe, ActiveDeveloperPipe, ActivePropertyPipe, 
     DisplayViewport, DisplayConfig
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpModule,
     IonicModule.forRoot(UmberWorldApp),
     StoreModule.provideStore(reducer)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     UmberWorldApp,
-    HomePage
+    HomePage,
+    CityAutocompletePage,
+    UmberAutocompletePage,
   ],
   providers: [
     StatusBar,

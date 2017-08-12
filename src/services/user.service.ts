@@ -12,7 +12,7 @@ import { Response } from '@angular/http';
 @Injectable()
 export class UserService {
 
-	BASE_URL: string = location.hostname === 'localhost' ? '' : '';
+	BASE_URL: string = location.hostname === 'localhost' ? 'api' : 'api';
 
     user: Observable<User>;
     constructor(

@@ -12,17 +12,18 @@ import * as _ from 'lodash';
 @Injectable()
 export class PropertyService {
 
-	BASE_URL: string = location.hostname === 'localhost' ? '' : '';
+	BASE_URL: string = location.hostname === 'localhost' ? 'api' : 'api';
     property: Observable<Property[]>;
     defaultProperty: Observable<Property[]>;
     globalProperty: Observable<Property[]>;
+    
     constructor(
         private http: HttpService,
         private utilService: UtilService,
         private store: Store<fromRoot.State>
     ) {
         this.property = store.let(fromRoot.getPropertyEntities);
-        this.defaultProperty = store.let(fromRoot.getDefaultPropertyEntities);
+        this.defaultProperty = store.let(fromRoot.getDefaultPropertyEntities)
         this.globalProperty = store.let(fromRoot.getGlobalPropertyEntities);
     }
 
@@ -87,6 +88,12 @@ export class PropertyService {
         return this.http.get(url)
         		.map(this.extractData)
                 //.catch(this.handleError);
+    }
+
+    public getPropertiesWithDetails(cityId: string = '9', searchString: string): Observable<Property[]> {
+       let url: string = `${this.BASE_URL}/property/search/details/${cityId}/${searchString}`; 
+        return this.http.get(url)
+                .map(this.extractData)
     }
 
     public getGlobalFeaturedProperties(): Observable<Property[]> {

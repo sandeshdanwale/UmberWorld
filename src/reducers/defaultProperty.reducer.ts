@@ -19,7 +19,7 @@ export function reducer(state = initialState, action: defaultProperty.Actions) {
       console.log('STORE:umber.defaultProperty/DEFAULT_PROPERTY_LOADED');
       return {
         loaded: true,
-        entities: [action.payload]
+        entities: action.payload
       };
     case defaultProperty.ActionTypes.UPDATE_PROPERTY_DETAIL:
       console.log('STORE:umber.defaultProperty/UPDATE_PROPERTY_DETAIL');
